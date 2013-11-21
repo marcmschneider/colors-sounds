@@ -1,0 +1,17 @@
+{
+	"name": "color-sounds",
+	"version": "0.0.0",
+	"dependencies": {
+		"requirejs": "2.1.8",
+		"require-cs": "0.4.4",
+		"requirejs-domready": "2.0.1",
+		"require-handlebars-plugin": "0.4.0",
+		"handlebars": "1.0.0-rc.1",
+		"jquery": "2.0.3",
+		"jquery.transit": "0.9.9",
+		"json2": "*",
+		"underscore": "1.5.2",
+		"backbone.wreqr": "0.2.0",
+		"backbone": "1.1.0"
+	}
+}

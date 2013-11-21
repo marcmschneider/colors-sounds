@@ -1,0 +1,16 @@
+.colors {
+	width: 100%;
+	height: 100px;
+	cursor: pointer;
+}
+
+.color-box {
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+.selected {  
+	opacity: 0.5;
+	border-bottom: solid 2px rgba(10,10,10,1);
+}
