@@ -15,7 +15,7 @@ define (require) ->
 		constructor: (callback) ->
 
 			MIDI.loadPlugin
-				soundfontUrl: 'soundfont/'
+				soundfontUrl: 'scripts/vendor/midi/soundfont/'
 				instrument: 'acoustic_grand_piano'
 				callback: () ->
 					# Midi is ready
