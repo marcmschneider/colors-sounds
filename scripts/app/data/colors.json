@@ -13,5 +13,15 @@
 		"name": "yellow",
 		"color": "#FFDD15",
 		"tone": "e2"
+	},
+	{
+		"name": "green",
+		"color": "#00A14B",
+		"tone": "f2"
+	},
+	{
+		"name": "blue",
+		"color": "#4988C7",
+		"tone": "g2"
 	}
 ]
