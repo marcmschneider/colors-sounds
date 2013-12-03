@@ -9,6 +9,7 @@ define (require) ->
 	ResultsCollection					= require 'cs!app/entities/results/resultsCollection'
 	layout										= require 'hbs!app/modules/experiment01/templates/layout'
 	resultTemplate						= require 'hbs!app/modules/experiment01/templates/resultTemplate'
+	$													= require 'jquery'
 
 	shuffle = (a) ->
 		for i in [a.length-1..1]
@@ -18,11 +19,18 @@ define (require) ->
 
 	class Experiment01Controller extends BaseExperimentController
 
-		start: () ->
+		start: (url) ->
+
+			if url
+				@url = url
+
+			@user = @appModel.get 'user'
+			
+			usr = @user.split('-').join(' ')
+			@username = usr.replace /\b./g, (m) -> m.toUpperCase()
 
 			@gameIsStarted = false
 			@round = 0
-			@clickedTone = ''
 			@clickedColor = ''
 
 			@resultsCollection = new ResultsCollection()
@@ -38,14 +46,14 @@ define (require) ->
 					for model in colorsCollection.models
 						note = model.get('tone')
 						@notes.push note
-
+						
 					@allRounds = colorsCollection.length
 					@layout()
 					@startViews(colorsCollection)
 
 		welcomeMessage: () ->
-			title = 'Experiment 01'
-			text = 'Welcome'
+			title = 'Welcome ' + @username
+			text = 'Listen to the sound and click on the color that sounds right for you.'
 			@message.show title, text
 
 		getColorsCollection: (callback) ->
@@ -83,7 +91,6 @@ define (require) ->
 
 				view.setSelected()
 
-				@clickedTone = model.get('tone')
 				@clickedColor = model.get('color')
 
 		clickButton: () =>
@@ -91,7 +98,7 @@ define (require) ->
 
 		gameEngine: () ->
 			
-			if !@clickedTone && !@clickedColor && @round != 0
+			if !@clickedColor && @round != 0
 				title = 'Please select a color!'
 				@message.show title
 			else
@@ -100,9 +107,8 @@ define (require) ->
 
 		saveResults: () ->
 			@resultsCollection.add
-				choosenColor: @clickedColor
-				choosenTone: @clickedTone
-				expectedTone: @notes[@round-2]
+				chosenColor: @clickedColor
+				playedTone: @notes[@round-2]
 
 		doRound: () ->
 			if !@gameIsStarted
@@ -113,7 +119,6 @@ define (require) ->
 
 			@updateButton()
 
-			@clickedTone = ''
 			@clickedColor = ''
 			@colorsView.unsetAllSelected()
 
@@ -123,19 +128,34 @@ define (require) ->
 				@buttonView.renderText 'Start'
 
 				@showResult()
+
+				if @url
+					@sendResult()
+
 				@resultsCollection.reset()
 			else
 				@playNextNote()
 
+		sendResult: () ->
+			$.ajax
+				type: 'POST'
+				url: @url
+				data:
+					'user': @user
+					'data': @resultsCollection.toJSON()
+				error: (e) ->
+					# console.info e
+				success: (e) ->
+					# console.info e
+
 		showResult: () ->
-			html = ''
+			html = '<b>Please repeat the experiment as often as you like.</b><br><br><br>'
 			for model in @resultsCollection.models
 				html += resultTemplate
-					choosenColor: model.get('choosenColor')
-					choosenTone: model.get('choosenTone')
-					expectedTone: model.get('expectedTone')
+					chosenColor: model.get('chosenColor')
+					playedTone: model.get('playedTone')
 
-			@message.show 'Congratulation', html, 'Restart'
+			@message.show 'Thank you ' + @username, html, 'Restart'
 
 		playNextNote: () ->
 			@sound.playNote @notes[@round-1]

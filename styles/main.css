@@ -1,7 +1,11 @@
 @import url(vendor/reset.css);
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600");
 html, body {
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
+
+.experimentCanvas {
+  height: 100%; }
 
 .button {
   cursor: pointer;
@@ -43,27 +47,77 @@ html, body {
     width: 50%;
     background-color: rgba(200, 200, 200, 0.9);
     border-radius: 8px; }
-    .message-wrapper .message h3, .message-wrapper .message p {
-      font-family: 'Open Sans', sans-serif; }
-    .message-wrapper .message h3 {
-      font-size: 2em;
-      font-weight: 300;
-      letter-spacing: .02em;
-      margin-bottom: 0.5em; }
-    .message-wrapper .message p {
-      font-size: 1em;
-      font-weight: 400; }
 
-.colors {
-  width: 100%;
-  height: 100px;
-  cursor: pointer; }
+h2, h3, p {
+  font-family: 'Open Sans', sans-serif; }
 
-.color-box {
-  width: 20%;
-  height: 100%;
-  float: left; }
+h2 {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 300; }
 
-.selected {
-  opacity: 0.5;
-  border-bottom: solid 2px #0a0a0a; }
+h3 {
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: .02em;
+  margin-bottom: 0.5em; }
+
+b {
+  font-weight: 700; }
+
+p {
+  font-size: 1em;
+  font-weight: 400; }
+
+.chosen-color {
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px; }
+
+hr {
+  border: 0;
+  color: #969696;
+  background-color: #969696;
+  height: 1px; }
+
+.intro {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  text-align: center; }
+  .intro .start-input {
+    margin-top: 12px;
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #c8c8c8;
+    background-color: #e6e6e6;
+    padding: 0.5em 1em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    color: white; }
+    .intro .start-input:focus {
+      outline: 0;
+      background-color: #646464;
+      border: 1px solid #323232; }
+
+.colors-region {
+  height: 20%; }
+  .colors-region .footer {
+    height: 10%; }
+  .colors-region .colors {
+    width: 100%;
+    height: 100%;
+    cursor: pointer; }
+  .colors-region .color-box {
+    width: 20%;
+    height: 100%;
+    float: left; }
+  .colors-region .selected {
+    opacity: 0.5;
+    border-bottom: solid 2px #0a0a0a; }

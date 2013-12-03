@@ -3,6 +3,11 @@
 
 html, body {
 	width: 100%;
+	height: 100%;
+}
+
+.experimentCanvas {
+	height: 100%;
 }
 
 .button {
@@ -57,24 +62,49 @@ html, body {
 		// height: 50%;
 		background-color: rgba(200,200,200,0.9);
 		border-radius: 8px;
-
-
-		h3, p {
-			font-family: 'Open Sans', sans-serif;
-		}
-
-		h3 {
-			font-size: 2em;
-			font-weight: 300;
-			letter-spacing: .02em;
-			margin-bottom: 0.5em;
-		}
-
-		p {
-			font-size: 1em;
-			font-weight: 400;
-		}
 	}
 }
 
+h2, h3, p {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	margin-top: 1em;
+	text-align: center;
+	font-size: 1.3em;
+	font-weight: 300;
+}
+
+h3 {
+	font-size: 2em;
+	font-weight: 300;
+	letter-spacing: .02em;
+	margin-bottom: 0.5em;
+}
+
+b {
+	font-weight: 700;
+}
+
+p {
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.chosen-color {
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+hr {
+	border: 0;
+	color: rgba(150,150,150,1);
+	background-color: rgba(150,150,150,1);
+	height: 1px;
+}
+
+@import "modules/start";
 @import "modules/experiment01";

@@ -5,8 +5,7 @@ define (require) ->
 	class ResultModel extends Backbone.Model
 
 		defaults:
-			expectedTone: ''
-			choosenTone: ''
-			choosenColor: ''
+			playedTone: ''
+			chosenColor: ''
 
 	ResultModel

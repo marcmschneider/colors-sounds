@@ -2,26 +2,36 @@
 	{
 		"name": "red",
 		"color": "#EC1C24",
-		"tone": "c2"
+		"tone": "c4"
 	},
 	{
 		"name": "orange",
 		"color": "#F16522",
-		"tone": "d2"
+		"tone": "d4"
 	},
 	{
 		"name": "yellow",
 		"color": "#FFDD15",
-		"tone": "e2"
+		"tone": "e4"
 	},
 	{
 		"name": "green",
 		"color": "#00A14B",
-		"tone": "f2"
+		"tone": "f4"
+	},
+	{
+		"name": "lightblue",
+		"color": "#4988C7",
+		"tone": "g4"
 	},
 	{
 		"name": "blue",
-		"color": "#4988C7",
-		"tone": "g2"
+		"color": "#224099",
+		"tone": "a4"
+	},
+	{
+		"name": "violet",
+		"color": "#7F3F97",
+		"tone": "b4"
 	}
 ]
