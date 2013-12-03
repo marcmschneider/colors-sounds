@@ -22,3 +22,13 @@
 		border-bottom: solid 2px rgba(10,10,10,1);
 	}
 }
+
+.bookmark-dragger {
+	span {
+		display: none;
+	}
+
+	&::after {
+		content: "Drag me to the bookmarks!"
+	}
+}

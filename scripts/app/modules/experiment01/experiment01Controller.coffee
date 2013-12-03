@@ -149,7 +149,13 @@ define (require) ->
 					# console.info e
 
 		showResult: () ->
-			html = '<b>Please repeat the experiment as often as you like.</b><br><br><br>'
+
+			resultMessageTemplate = require 'hbs!apps/modules/experiment01/templates/resultMessage'
+
+			html = resultMessageTemplate
+							user: @user
+							name: @username
+
 			for model in @resultsCollection.models
 				html += resultTemplate
 					chosenColor: model.get('chosenColor')
