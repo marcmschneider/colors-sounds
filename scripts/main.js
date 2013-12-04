@@ -2,6 +2,9 @@ requirejs.config({
 
 	urlArgs: 'bust=' + (new Date()).getTime(),
 
+	stubModules: ['cs'],
+	exclude: ['coffee-script'],
+
 	paths: {
 		// requirejs plugins and its depencencies
 		'cs': '../components/require-cs/cs',
