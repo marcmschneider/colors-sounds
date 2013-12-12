@@ -31,6 +31,6 @@ define (require) ->
 				experiment01Controller = new Experiment01Controller(@appModel)
 				
 				url = 'http://solanki.ch/colors/backend.php'
-				experiment01Controller.start(url)
+				experiment01Controller.start()
 
 		Router

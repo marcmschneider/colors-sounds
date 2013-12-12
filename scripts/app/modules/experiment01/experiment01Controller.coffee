@@ -150,11 +150,19 @@ define (require) ->
 
 		showResult: () ->
 
-			resultMessageTemplate = require 'hbs!apps/modules/experiment01/templates/resultMessage'
+			resultMessageTemplate = require 'hbs!app/modules/experiment01/templates/resultMessage'
+
+			pathname;
+
+			if document.location.pathname == '/'
+				pathname = ''
+			else
+				pathname = document.location.pathname
 
 			html = resultMessageTemplate
 							user: @user
 							name: @username
+							baseUrl: pathname
 
 			for model in @resultsCollection.models
 				html += resultTemplate
